@@ -1,7 +1,7 @@
 var formEl = document.querySelector("#task-form");
 var tasksToDoEl = document.querySelector("#tasks-to-do");
 
-var taskFormHandler = function (event) {
+var taskFormHandler = function(event) {
 
     event.preventDefault();
 
@@ -14,7 +14,13 @@ var taskFormHandler = function (event) {
         return false;
 
     }
+
     formEl.reset();
+
+    // reset form fields for next task to be entered
+    document.querySelector("input[name='task-name']").value = "";
+    document.querySelector("select[name='task-type']").selectedIndex = 0;
+
     //package up data as an object
     var taskDataObj = {
         name: taskNameInput,
