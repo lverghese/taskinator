@@ -216,8 +216,7 @@ var completeEditTask = function(taskName, taskType, taskId) {
 };
 
 var taskStatusChangeHandler = function(event) {
-    //get the task item's id
-    console.log(event.target.value);
+    
 
     var taskId = event.target.getAttribute("data-task-id");
     
@@ -243,13 +242,12 @@ var taskStatusChangeHandler = function(event) {
             tasks[i].status = statusValue;
         }
     };
-    console.log(tasks);
 
     saveTasks();
 };
 
 var saveTasks = function () {
-    localStorage.setItem("tasks",tasks);
+    localStorage.setItem("tasks", JSON.stringify(tasks));
 }
 
 formEl.addEventListener("submit", taskFormHandler);
